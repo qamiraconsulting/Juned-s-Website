@@ -1,8 +1,8 @@
-# JDcorp — Junk Removal & Moving (website)
+# Blue Line Removals (website)
 
-Marketing site for an Australian junk-removal and house-moving business. "JDcorp" is a
-placeholder brand name pending the client's confirmed business name/ABN — see
-`src/data/site.ts`.
+Marketing site for Blue Line Removals, a Melbourne house/office moving and junk-removal
+business. Brand name confirmed 2026-07-23; domain `bluelineremovals.com.au` checked
+available on Namecheap but not yet registered — see `src/data/site.ts`.
 
 ## Stack
 
@@ -16,8 +16,8 @@ approach as `qamira-web`, adapted to this brand's own color/type tokens
   reviews, and a quote-request form.
 - The quote form is layout-only — it doesn't send anywhere yet.
 - Placeholder content still to confirm/replace before launch:
-  - Brand name, ABN, phone, email — `src/data/site.ts`
-  - Service area / suburb list — `src/data/content/home.ts` (`serviceAreas`)
+  - ABN, phone, email — `src/data/site.ts` (brand name is confirmed; domain not yet registered)
+  - Exact suburb list / coverage radius within Melbourne — `src/data/content/home.ts` (`serviceAreas`)
   - Hero/service photos are temporary Unsplash stock images — `src/data/content/images.ts`
   - Reviews section has no real reviews yet (business hasn't launched) — placeholders
     only, clearly labeled as such in `src/data/content/home.ts` (`reviews`)

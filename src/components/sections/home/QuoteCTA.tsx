@@ -50,7 +50,7 @@ export function QuoteCTA() {
                 <CircleCheck className="h-10 w-10 text-eco" aria-hidden="true" />
                 <p className="font-display text-lg font-bold text-navy">Got it — thanks!</p>
                 <p className="max-w-[32ch] text-sm text-ink-dim">
-                  This is a form preview. Once the backend is wired up, submitting here will alert JDcorp directly.
+                  This is a form preview. Once the backend is wired up, submitting here will alert {site.name} directly.
                 </p>
               </div>
             ) : (
@@ -59,7 +59,7 @@ export function QuoteCTA() {
                   <Field label="Name" id="name" type="text" required />
                   <Field label="Phone" id="phone" type="tel" required />
                 </div>
-                <Field label="Suburb" id="suburb" type="text" placeholder="e.g. [Suburb]" />
+                <Field label="Suburb" id="suburb" type="text" placeholder="e.g. St Kilda" />
                 <div className="grid gap-1.5">
                   <label htmlFor="service" className="text-xs font-bold uppercase tracking-[0.06em] text-ink-dim">
                     What do you need?

@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
+import { Percent } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
-import { hero } from "@/data/content/home";
+import { hero, promo } from "@/data/content/home";
 import { images } from "@/data/content/images";
 import { ease } from "@/lib/motion";
 
@@ -22,6 +23,10 @@ export function Hero() {
           transition={{ duration: 0.8, ease }}
           className="max-w-[40rem]"
         >
+          <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-action/50 bg-action/20 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.06em] text-white">
+            <Percent className="h-3.5 w-3.5" aria-hidden="true" />
+            {promo.badge} — {promo.heading}
+          </span>
           <Eyebrow tone="white" className="mb-6">
             {hero.kicker}
           </Eyebrow>
