@@ -49,14 +49,17 @@ export function Header() {
         )}
       >
         <div className="mx-auto flex max-w-content items-center justify-between px-5 sm:px-8 lg:px-12">
-          <Logo large />
+          <Logo large light={!scrolled} />
 
           <nav className="hidden items-center gap-7 lg:flex">
             {primaryNav.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="font-display text-sm font-bold uppercase tracking-[0.02em] text-navy transition-colors hover:text-action"
+                className={clsx(
+                  "font-display text-sm font-bold uppercase tracking-[0.02em] transition-colors hover:text-action-bright",
+                  scrolled ? "text-navy" : "text-white",
+                )}
               >
                 {item.label}
               </a>
@@ -66,7 +69,10 @@ export function Header() {
           <div className="flex items-center gap-3">
             <a
               href={site.phoneHref}
-              className="hidden items-center gap-2 font-display text-sm font-bold text-navy sm:flex"
+              className={clsx(
+                "hidden items-center gap-2 font-display text-sm font-bold sm:flex",
+                scrolled ? "text-navy" : "text-white",
+              )}
             >
               <Phone className="h-4 w-4 text-action" aria-hidden="true" />
               {site.phone}
@@ -79,7 +85,10 @@ export function Header() {
               aria-label={menuOpen ? "Close menu" : "Open menu"}
               aria-expanded={menuOpen}
               onClick={() => setMenuOpen((v) => !v)}
-              className="flex h-10 w-10 items-center justify-center rounded-md border border-ink/15 text-navy lg:hidden"
+              className={clsx(
+                "flex h-10 w-10 items-center justify-center rounded-md border lg:hidden",
+                scrolled ? "border-ink/15 text-navy" : "border-white/30 text-white",
+              )}
             >
               {menuOpen ? <X className="h-5 w-5" aria-hidden="true" /> : <Menu className="h-5 w-5" aria-hidden="true" />}
             </button>
