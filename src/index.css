@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+/* Self-hosted font weights -- limited to what the design system uses */
+@import "@fontsource/archivo/700.css";
+@import "@fontsource/archivo/800.css";
+@import "@fontsource/archivo/900.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/inter/700.css";
+
+@theme {
+  /* Ink / neutrals -- cool off-white, not the warm-cream default */
+  --color-ink: #1b2430;
+  --color-ink-dim: #5b6472;
+  --color-paper: #f4f6f5;
+  --color-paper-2: #eaede9;
+  --color-white: #ffffff;
+
+  /* Navy -- the fleet-livery trust color, used for headers/dark surfaces */
+  --color-navy: #0e2a47;
+  --color-navy-2: #16385c;
+  --color-navy-3: #26507c;
+
+  /* Hi-vis orange -- the single action accent, "Get a Quote" and nothing else */
+  --color-action: #ff6b1a;
+  --color-action-bright: #ff8438;
+  --color-action-dim: #d95910;
+
+  /* Eco green -- used sparingly, only for recycle/donate trust signals */
+  --color-eco: #2f8f5b;
+  --color-eco-wash: #e6f3ec;
+
+  --font-display: "Archivo", "Arial Black", sans-serif;
+  --font-body: "Inter", -apple-system, "Segoe UI", sans-serif;
+
+  --container-content: 1280px;
+
+  --ease-signature: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: var(--color-navy);
+  }
+
+  ::selection {
+    background-color: var(--color-action);
+    color: white;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-action);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .skip-link {
+    position: fixed;
+    left: 1rem;
+    top: 0.75rem;
+    z-index: 100;
+    transform: translateY(-6rem);
+    border-radius: 0.25rem;
+    background-color: var(--color-action);
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    color: white;
+    transition: transform 0.2s;
+  }
+  .skip-link:focus {
+    transform: translateY(0);
+  }
+}
