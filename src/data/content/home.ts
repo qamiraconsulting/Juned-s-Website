@@ -1,55 +1,61 @@
 // Homepage copy for Blue Line Removals (brand confirmed 2026-07-23).
-// Focus is deliberately moving-first per the client's direction -- junk
-// removal and packing are framed as what happens alongside a move, not a
-// co-equal separate business. Suburb list in serviceAreas below is an
-// illustrative Melbourne-wide spread, not a confirmed coverage list.
+// 2026-08-10 pass: hero/trustStats/servicesOverview rewritten to match the
+// client-supplied sample site pages verbatim (see BLR Sample Site-Lovejeet
+// screenshots). Client confirmed the "8+ years / 11,000+ moves / 5,000+
+// customers / 100% insured" stats below are real and OK to publish as-is.
+// The full 7-service catalog (used on /services and /services/:slug) now
+// lives in data/content/services.ts, not here.
+import { site } from "@/data/site";
 
 export const hero = {
-  kicker: "Melbourne Home & Office Removals",
-  heading: "Moving house? We'll get you there — and clear out what's not coming with you.",
-  lede: "Blue Line Removals loads, drives, and unloads your move end to end, then takes what you're leaving behind straight to donation or recycling — not landfill. Upfront pricing, same-day slots where you need them.",
-  primaryCta: { label: "Get a Free Moving Quote", href: "#quote" },
-  secondaryCta: { label: "See how it works", href: "#how-it-works" },
+  heading: "Beyond Boxes, We Move Memories.",
+  headingAccent: "Memories.",
+  lede: "Moving & Junk Removal Services Across Australia.",
+  primaryCta: { label: "Get a Free Quote", href: "/quote" },
+  callCta: { label: "Call Us Now", href: site.phoneHref },
+  callbackCta: { label: "Request Callback" }, // opens the lightweight CallbackModal, not a route -- see lib/callbackModal.tsx
 };
 
-// New-customer / seasonal discount hook -- shown as a badge in the Hero
-// and referenced again near the quote form. Update or retire seasonally.
+// New-customer / seasonal discount hook, carried over from the pre-sample
+// build (2026-07-23 decision). Not part of the sample's hero -- surfaced
+// instead on the Quote page so it isn't lost. Update or retire seasonally.
 export const promo = {
   badge: "New Customer Offer",
   heading: "30% off your first move",
-  body: "Book your first move or junk removal with Blue Line Removals and save 30% off the flat-rate quote — mention it when you call or note it on the form below.",
+  body: "Book your first move or junk removal with Blue Line Removals and save 30% off the flat-rate quote — mention it when you call or note it on the form.",
 };
 
 export const trustStats = [
-  { value: "Same Day", label: "Slots available, 7 days a week" },
-  { value: "100%", label: "Licensed & insured crews" },
-  { value: "Donate First", label: "Recycled or donated before landfill" },
-  { value: "30% Off", label: "Your first move — new customer offer" },
-];
+  { icon: "award", value: "8+", label: "Years of Experience" },
+  { icon: "truck", value: "11,000+", label: "Successful Moves" },
+  { icon: "users", value: "5,000+", label: "Happy Customers" },
+  { icon: "shield", value: "100%", label: "Fully Insured" },
+] as const;
 
-export const services = [
-  {
-    title: "House & Office Moving",
-    body: "Local Melbourne relocations handled end to end — our crew loads, drives, and unloads, so nothing gets left behind or damaged in transit.",
-    bullets: ["Local house & apartment moves", "Small office & commercial relocations", "Furniture disassembly & reassembly"],
-    image: "serviceMoving",
-    cta: { label: "Get a moving quote", href: "#quote" },
-  },
-  {
-    title: "Packing Assistance",
-    body: "Don't want to spend your weekend wrapping glassware? We pack a room, a kitchen, or the whole house — with materials included.",
-    bullets: ["Full or partial packing service", "Packing materials supplied", "Careful handling of fragile items"],
-    image: "servicePacking",
-    cta: { label: "Get a packing quote", href: "#quote" },
-  },
-  {
-    title: "Junk & Rubbish Removal",
-    body: "Old furniture, appliances, garage clear-outs, renovation debris — anything you can't fit in the council bin. Point at the pile, we quote it on the spot and take it away same visit.",
-    bullets: ["Furniture & appliance removal", "Garage, shed & yard clear-outs", "Renovation & deceased-estate cleanups"],
-    image: "serviceJunk",
-    cta: { label: "Get a junk removal quote", href: "#quote" },
-  },
-];
+// Homepage "Moving & Junk Removal Made Simple" overview -- two cards
+// linking into the full catalog on /services. Full per-service detail
+// pages are in data/content/services.ts.
+export const servicesOverview = {
+  eyebrow: "Our Services",
+  heading: "Moving & Junk Removal Made Simple",
+  headingAccent: "Junk Removal",
+  items: [
+    {
+      title: "Moving Services",
+      body: "From small homes to big moves, we handle it all with care.",
+      icon: "truck",
+      href: "/services",
+    },
+    {
+      title: "Junk Removal",
+      titleAccent: true,
+      body: "Fast, reliable removal of unwanted items.",
+      subheading: "Junk Gone, Space Won.",
+      icon: "trash",
+      href: "/services/junk-removal",
+    },
+  ],
+};
 
 export const howItWorks = [
   {
@@ -127,9 +133,12 @@ export const reviews = {
   ],
 };
 
+// Homepage's closing section -- the full quote form now lives on its own
+// page (/quote, see pages/Quote.tsx), so this is a short CTA banner rather
+// than an embedded form.
 export const quoteCta = {
   eyebrow: "Get a quote",
   heading: "Tell us what needs to go — or where it needs to go.",
-  body: "Fill in the form or call directly. First move or first junk pickup with us? Ask about the 30% new-customer offer. Same-day slots fill up fast, so the earlier in the day you reach out, the more likely we can fit you in today.",
-  formNote: "This form is a working draft of the layout — hooking it up to send real quote requests (email/SMS alert, same pattern as qamiraconsulting.com's contact form) is the next build step.",
+  body: "Get a free, no-obligation quote in minutes. First move or first junk pickup with us? Ask about the 30% new-customer offer. Same-day slots fill up fast, so the earlier in the day you reach out, the more likely we can fit you in today.",
+  cta: { label: "Get My Free Quote", href: "/quote" },
 };

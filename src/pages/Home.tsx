@@ -7,6 +7,7 @@ import { WhyUs } from "@/components/sections/home/WhyUs";
 import { ServiceAreas } from "@/components/sections/home/ServiceAreas";
 import { Reviews } from "@/components/sections/home/Reviews";
 import { QuoteCTA } from "@/components/sections/home/QuoteCTA";
+import { CallbackBar } from "@/components/ui/CallbackBar";
 
 export function Home() {
   return (
@@ -14,6 +15,7 @@ export function Home() {
       <Hero />
       <TrustBar />
       <Services />
+      <CallbackBar />
       <HowItWorks />
       <BeforeAfter />
       <WhyUs />

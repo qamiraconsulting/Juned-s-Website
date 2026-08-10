@@ -1,20 +1,25 @@
 import { motion } from "framer-motion";
-import { Percent } from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
-import { hero, promo } from "@/data/content/home";
+import { hero } from "@/data/content/home";
 import { images } from "@/data/content/images";
 import { ease } from "@/lib/motion";
+import { useCallbackModal } from "@/lib/callbackModal";
 
 export function Hero() {
+  const [headingLead] = hero.heading.split(hero.headingAccent);
+  const { open } = useCallbackModal();
+
   return (
     <section className="relative flex min-h-[92svh] items-center overflow-hidden pt-24">
       <div className="absolute inset-0">
-        <img src={images.hero} alt="" className="h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/80 to-navy/50" />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/60 to-transparent" />
+        <img src={images.hero} alt="Blue Line Removals branded truck driving through the city at dusk" className="h-full w-full object-cover" />
       </div>
+      {/* Kept deliberately light -- the truck and its branding should read
+          clearly, not be washed out by a heavy scrim. Legibility comes
+          mostly from the drop-shadow on the text below. */}
+      <div className="absolute inset-0 bg-gradient-to-t from-navy/55 via-navy/10 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-navy/60 via-navy/15 to-transparent" />
 
       <Container className="relative z-10 w-full">
         <motion.div
@@ -23,23 +28,20 @@ export function Hero() {
           transition={{ duration: 0.8, ease }}
           className="max-w-[40rem]"
         >
-          <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-action/50 bg-action/20 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.06em] text-white">
-            <Percent className="h-3.5 w-3.5" aria-hidden="true" />
-            {promo.badge} — {promo.heading}
-          </span>
-          <Eyebrow tone="white" className="mb-6">
-            {hero.kicker}
-          </Eyebrow>
-          <h1 className="max-w-[16ch] text-4xl leading-[1.08] text-white sm:text-5xl lg:text-[3.4rem]">
-            {hero.heading}
+          <h1 className="max-w-[16ch] text-4xl leading-[1.08] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)] sm:text-5xl lg:text-[3.4rem]">
+            {headingLead}
+            <span className="text-action-bright">{hero.headingAccent}</span>
           </h1>
-          <p className="mt-6 max-w-[46ch] text-lg text-white/85">{hero.lede}</p>
-          <div className="mt-10 flex flex-wrap gap-4">
+          <p className="mt-6 max-w-[46ch] text-lg text-white/90 drop-shadow-[0_1px_6px_rgba(0,0,0,0.5)]">{hero.lede}</p>
+          <div className="mt-10 flex flex-wrap gap-3">
             <Button href={hero.primaryCta.href} arrow>
               {hero.primaryCta.label}
             </Button>
-            <Button href={hero.secondaryCta.href} variant="ghost" className="border-2 border-white/30">
-              {hero.secondaryCta.label}
+            <Button href={hero.callCta.href} variant="navy">
+              {hero.callCta.label}
+            </Button>
+            <Button onClick={open} variant="steel">
+              {hero.callbackCta.label}
             </Button>
           </div>
         </motion.div>

@@ -3,28 +3,32 @@ export type NavItem = {
   href: string;
 };
 
-// Single-page site for now -- every link is an in-page anchor. Once
-// /services, /areas, /reviews etc. become real routed pages, swap these
-// hrefs for router paths (see qamira-web's navigation.ts for that pattern).
+// 2026-08-10: Services and Get a Quote are now real routed pages
+// (/services, /services/:slug, /quote). How It Works, Service Areas, and
+// Reviews still only exist as sections on the homepage, so those stay as
+// "/#hash" links -- from another page they do a full navigation back to
+// "/" and the browser's native anchor scroll takes it from there.
 export const primaryNav: NavItem[] = [
-  { label: "Services", href: "#services" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Service Areas", href: "#areas" },
-  { label: "Reviews", href: "#reviews" },
-  { label: "Contact", href: "#quote" },
+  { label: "Services", href: "/services" },
+  { label: "How It Works", href: "/#how-it-works" },
+  { label: "Service Areas", href: "/#areas" },
+  { label: "Reviews", href: "/#reviews" },
 ];
 
 export const footerNav = {
   services: [
-    { label: "Junk & Rubbish Removal", href: "#services" },
-    { label: "House & Office Moving", href: "#services" },
-    { label: "Packing Assistance", href: "#services" },
-    { label: "Same-Day Service", href: "#services" },
+    { label: "Home Removals", href: "/services/home-removals" },
+    { label: "Office Removals", href: "/services/office-removals" },
+    { label: "Interstate Removals", href: "/services/interstate-removals" },
+    { label: "Junk Removal", href: "/services/junk-removal" },
+    { label: "Packing & Unpacking", href: "/services/packing-unpacking" },
+    { label: "Storage Solutions", href: "/services/storage-solutions" },
+    { label: "Specialty Items", href: "/services/specialty-items" },
   ],
   company: [
-    { label: "How It Works", href: "#how-it-works" },
-    { label: "Service Areas", href: "#areas" },
-    { label: "Reviews", href: "#reviews" },
-    { label: "Get a Quote", href: "#quote" },
+    { label: "How It Works", href: "/#how-it-works" },
+    { label: "Service Areas", href: "/#areas" },
+    { label: "Reviews", href: "/#reviews" },
+    { label: "Get a Quote", href: "/quote" },
   ],
 } satisfies Record<string, NavItem[]>;

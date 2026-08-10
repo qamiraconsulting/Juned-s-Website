@@ -7,17 +7,20 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "typecheck:api": "tsc --noEmit -p tsconfig.api.json"
   },
   "dependencies": {
     "@fontsource/archivo": "^5.3.0",
     "@fontsource/inter": "^5.3.0",
+    "@vercel/node": "^5.9.7",
     "clsx": "^2.1.1",
     "framer-motion": "^12.42.2",
     "lucide-react": "^1.25.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
-    "react-router-dom": "^7.18.1"
+    "react-router-dom": "^7.18.1",
+    "resend": "^6.18.1"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",

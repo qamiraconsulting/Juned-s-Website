@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Logo } from "@/components/brand/Logo";
 import { Container } from "@/components/ui/Container";
 import { footerNav } from "@/data/navigation";
@@ -57,9 +58,15 @@ function FooterColumn({ title, items }: { title: string; items: { label: string;
       <ul className="flex flex-col gap-2.5">
         {items.map((item) => (
           <li key={item.label}>
-            <a href={item.href} className="text-sm transition-colors hover:text-action-bright">
-              {item.label}
-            </a>
+            {item.href.includes("#") ? (
+              <a href={item.href} className="text-sm transition-colors hover:text-action-bright">
+                {item.label}
+              </a>
+            ) : (
+              <Link to={item.href} className="text-sm transition-colors hover:text-action-bright">
+                {item.label}
+              </Link>
+            )}
           </li>
         ))}
       </ul>

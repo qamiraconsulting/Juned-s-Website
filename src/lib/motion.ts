@@ -18,4 +18,7 @@ export const staggerChildren = (stagger = 0.08): Variants => ({
   },
 });
 
-export const viewportOnce = { once: true, margin: "-80px" };
+// Positive margin expands the trigger zone outward, so content finishes
+// fading in before it's actually scrolled into view -- avoids a fast
+// scroll (or a screenshot) catching a section mid-fade and looking blank.
+export const viewportOnce = { once: true, margin: "200px" };

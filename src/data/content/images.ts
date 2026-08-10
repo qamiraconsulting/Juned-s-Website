@@ -1,17 +1,25 @@
-// TEMPORARY STOCK PHOTOS -- sourced from Unsplash (free to use) as
-// placeholders only. Swap every one of these for the client's own truck,
-// team, and job photos before launch -- real photos matter a lot for trust
-// in this category (junk.com.au and 1800gotjunk both lead with real crews).
-// Keeping every reference in this one file so replacement is a single pass.
+// All /images/*.webp files (2026-08-10) are AI-generated with the real
+// Blue Line Removals branding (logo, uniforms) rendered onto the truck and
+// crew, matching the client's sample site -- see public/images/. Converted
+// from the original PNGs and compressed (sharp, quality 78, capped at
+// 1920w for the hero / 1200w elsewhere) -- ~22MB of PNGs down to ~1.3MB of
+// WebP, since none of these were ever displayed anywhere near full
+// resolution. `serviceJunk` is still a temporary Unsplash placeholder;
+// swap for a real client photo before launch.
 function unsplash(id: string, w: number) {
   return `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`;
 }
 
 export const images = {
-  hero: unsplash("photo-1698917414969-feade59e3343", 1800), // mover unloading furniture from a truck
-  before: unsplash("photo-1709831917664-804b57448953", 900), // cluttered garage
-  after: unsplash("photo-1721395286594-8913b06056eb", 900), // empty, clean room
-  serviceJunk: unsplash("photo-1602770318920-7a02839e5c4d", 900), // old sofa beside a bin
-  serviceMoving: unsplash("photo-1783473007464-1dbf2ff30dec", 900), // moving truck + person carrying furniture
-  servicePacking: unsplash("photo-1580710438850-988a62dee2af", 900), // person beside packed boxes
+  hero: "/images/hero-truck.webp", // branded truck on a city street at dusk -- "beyond boxes, we move memories" hero
+  before: "/images/before-garage.webp", // cluttered garage, same angle as `after` for a clean comparison
+  after: "/images/after-garage.webp", // same garage emptied out, folded branded moving blanket left in the corner
+  serviceJunk: unsplash("photo-1738236662730-b4ea66d35d0c", 900), // pile of junk outside a building -- junk-removal's CTA banner accent
+  homeRemovals: "/images/home-removals.webp", // branded crew carrying a wrapped chair into the truck outside a house
+  officeRemovals: "/images/office-removals.webp", // branded crew wheeling office furniture out of a building
+  interstateRemovals: "/images/interstate-removals.webp", // branded truck on the open highway
+  junkRemoval: "/images/movers-loading-sofa.webp", // two branded-uniform movers loading a sofa into the branded truck
+  packingUnpacking: "/images/packing-unpacking.webp", // branded crew member wrapping a picture frame
+  storageSolutions: "/images/storage-solutions.webp", // branded crew wheeling boxes into a storage unit, truck visible outside
+  specialtyItems: "/images/specialty-items.webp", // branded crew loading a piano into the truck
 } as const;
