@@ -107,16 +107,6 @@ export const whyUs = [
   },
 ];
 
-// Illustrative Melbourne-wide spread (CBD + north/south/east/west), not a
-// confirmed coverage list -- check the exact suburb list and any coverage
-// radius with the client before launch (see roadmap Phase 1).
-export const serviceAreas = {
-  eyebrow: "Where we work",
-  heading: "Servicing Melbourne, wall to wall.",
-  body: "Based in Melbourne and covering suburbs right across the metro area. Not sure if you're in range? Ask when you call — most Melbourne postcodes are a yes.",
-  suburbs: ["Melbourne CBD", "St Kilda", "Richmond", "Brunswick", "Footscray", "Dandenong", "Frankston", "Werribee"],
-};
-
 // Placeholder layout only -- JDcorp hasn't taken its first job yet, so
 // there are no real reviews to show. Replace every card with an actual
 // Google review (and turn on the review-request flow from the roadmap)
