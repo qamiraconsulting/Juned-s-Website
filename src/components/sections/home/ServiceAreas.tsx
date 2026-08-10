@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import clsx from "clsx";
 import { Search, MapPin } from "lucide-react";
 import { Container } from "@/components/ui/Container";
@@ -98,9 +99,9 @@ export function ServiceAreas() {
                   {suburbs.map((suburb) => {
                     const isMatch = q.length > 0 && suburb.toLowerCase().includes(q);
                     return (
-                      <a
+                      <Link
                         key={suburb}
-                        href="/quote"
+                        to={`/quote?to=${encodeURIComponent(suburb)}`}
                         className={clsx(
                           "flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-sm font-medium transition-all",
                           isMatch
@@ -112,7 +113,7 @@ export function ServiceAreas() {
                       >
                         <MapPin className={clsx("h-3.5 w-3.5", isMatch || !q ? "text-action" : "text-ink/30")} aria-hidden="true" />
                         {suburb}
-                      </a>
+                      </Link>
                     );
                   })}
                 </div>

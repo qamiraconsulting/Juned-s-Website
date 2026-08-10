@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from "react";
+import { useSearchParams } from "react-router-dom";
 import clsx from "clsx";
 import { User, Phone, Mail, MapPin, Calendar, Home as HomeIcon, Truck, Trash2, DollarSign, Clock, ShieldCheck, CircleCheck } from "lucide-react";
 import { Container } from "@/components/ui/Container";
@@ -16,6 +17,9 @@ const quoteTrust = [
 const propertySizes = ["Studio / 1 Bed", "2 Bedroom", "3 Bedroom", "4+ Bedroom", "Office / Commercial", "Not Sure Yet"];
 
 export function Quote() {
+  const [searchParams] = useSearchParams();
+  const prefilledTo = searchParams.get("to") ?? "";
+
   const [need, setNeed] = useState<"moving" | "junk">("moving");
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -98,7 +102,7 @@ export function Quote() {
                   </div>
 
                   <Field label="Moving From" id="from" type="text" placeholder="Suburb or City" icon={MapPin} />
-                  <Field label="Moving To" id="to" type="text" placeholder="Suburb or City" icon={MapPin} />
+                  <Field label="Moving To" id="to" type="text" placeholder="Suburb or City" icon={MapPin} defaultValue={prefilledTo} />
                   <Field label="Preferred Date" id="date" type="date" icon={Calendar} />
 
                   <div className="grid gap-1.5">
@@ -186,6 +190,7 @@ function Field({
   icon: Icon,
   required,
   placeholder,
+  defaultValue,
 }: {
   label: string;
   id: string;
@@ -193,6 +198,7 @@ function Field({
   icon: typeof User;
   required?: boolean;
   placeholder?: string;
+  defaultValue?: string;
 }) {
   return (
     <div className="grid gap-1.5">
@@ -207,6 +213,7 @@ function Field({
           type={type}
           required={required}
           placeholder={placeholder}
+          defaultValue={defaultValue}
           className="w-full rounded-md border border-ink/15 bg-white py-2.5 pl-10 pr-3.5 text-sm text-ink outline-none focus:border-action"
         />
       </div>
