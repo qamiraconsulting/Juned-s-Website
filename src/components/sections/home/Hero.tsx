@@ -11,18 +11,9 @@ export function Hero() {
   const { open } = useCallbackModal();
 
   return (
-    <section className="relative flex min-h-[92svh] items-center overflow-hidden bg-navy pt-24">
-      {/* At lg+ the truck is confined to a narrower right-anchored panel
-          (was full-bleed) so its cab doesn't sit under the headline --
-          client flagged the overlap on wide screens. Mobile is untouched. */}
+    <section className="relative flex min-h-[92svh] items-center overflow-hidden pt-24">
       <div className="absolute inset-0">
-        <div className="ml-auto h-full w-full lg:w-[62%]">
-          <img
-            src={images.hero}
-            alt="Blue Line Removals branded truck driving through the city at dusk"
-            className="h-full w-full object-cover object-center lg:object-right"
-          />
-        </div>
+        <img src={images.hero} alt="Blue Line Removals branded truck driving through the city at dusk" className="h-full w-full object-cover" />
       </div>
       {/* Kept deliberately light -- the truck and its branding should read
           clearly, not be washed out by a heavy scrim. Legibility comes

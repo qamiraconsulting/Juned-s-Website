@@ -25,7 +25,7 @@ export function TrustBar({ tone = "white" }: { tone?: "white" | "navy" }) {
                 key={stat.label}
                 className={tone === "white" ? "bg-white px-5 py-6 sm:px-7 sm:py-8" : "text-center sm:text-left"}
               >
-                <Icon className={clsx("h-9 w-9", accent ? "text-action-bright" : tone === "white" ? "text-navy" : "text-white")} aria-hidden="true" />
+                <Icon className={clsx("h-6 w-6", accent ? "text-action-bright" : tone === "white" ? "text-navy" : "text-white")} aria-hidden="true" />
                 <div
                   className={clsx(
                     "mt-2 font-display text-2xl font-black sm:text-3xl",
