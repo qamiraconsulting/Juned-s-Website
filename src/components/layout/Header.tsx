@@ -1,31 +1,19 @@
 import { useEffect, useState } from "react";
-import clsx from "clsx";
 import { Menu, X, Phone } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Logo } from "@/components/brand/Logo";
 import { Button } from "@/components/ui/Button";
 import { primaryNav } from "@/data/navigation";
 import { site } from "@/data/site";
 
+// Always the solid navy bar now, on every page and at every scroll
+// position -- previously this only went solid-white after scrolling 12px
+// past a hero (and was solid-white from the first frame on every other
+// page). The slim "Same-day service..." contact strip that used to show
+// above it pre-scroll is dropped along with that toggle, since it would
+// never be reachable anymore.
 export function Header() {
-  // Only Home has a full-bleed dark hero behind the header, so only Home
-  // gets the transparent/white-text treatment at scrollY 0 -- every other
-  // page opens straight onto a light background and needs the solid
-  // white-bar/navy-text styling from the first frame, or the nav is
-  // unreadable (white text on white).
-  const { pathname } = useLocation();
-  const hasHero = pathname === "/";
-  const [scrolledPast, setScrolledPast] = useState(false);
-  const scrolled = scrolledPast || !hasHero;
   const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    if (!hasHero) return;
-    const onScroll = () => setScrolledPast(window.scrollY > 12);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [hasHero]);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -36,28 +24,7 @@ export function Header() {
 
   return (
     <header id="top" className="fixed inset-x-0 top-0 z-[100]">
-      {/* Slim contact strip -- hidden once scrolled, to keep the sticky bar compact */}
-      <div
-        className={clsx(
-          "hidden overflow-hidden bg-navy text-white transition-all duration-300 ease-signature sm:block",
-          scrolled ? "max-h-0" : "max-h-10",
-        )}
-      >
-        <div className="mx-auto flex max-w-content items-center justify-between px-5 py-2 text-xs sm:px-8 lg:px-12">
-          <span className="font-medium">Same-day service available across {site.serviceRegion}</span>
-          <a href={site.phoneHref} className="flex items-center gap-1.5 font-bold tracking-wide hover:text-action-bright">
-            <Phone className="h-3.5 w-3.5" aria-hidden="true" />
-            {site.phone}
-          </a>
-        </div>
-      </div>
-
-      <div
-        className={clsx(
-          "transition-all duration-300 ease-signature",
-          scrolled ? "border-b border-ink/10 bg-white/95 py-3 shadow-sm backdrop-blur-md" : "border-b border-transparent py-4",
-        )}
-      >
+      <div className="border-b border-white/10 bg-navy py-3 shadow-sm">
         {/* Mobile/tablet: hamburger - logo - call button, matching the sample's
             mobile header. Desktop (lg+): logo - nav - phone + quote button,
             hamburger and mobile call button drop out entirely. */}
@@ -67,22 +34,16 @@ export function Header() {
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((v) => !v)}
-            className={clsx(
-              "order-first flex h-10 w-10 shrink-0 items-center justify-center rounded-md border lg:hidden",
-              scrolled ? "border-ink/15 text-navy" : "border-white/30 text-white",
-            )}
+            className="order-first flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-white/30 text-white lg:hidden"
           >
             {menuOpen ? <X className="h-5 w-5" aria-hidden="true" /> : <Menu className="h-5 w-5" aria-hidden="true" />}
           </button>
 
-          <Logo large light={!scrolled} />
+          <Logo large light />
 
           <nav className="hidden items-center gap-7 lg:flex">
             {primaryNav.map((item) => {
-              const navClass = clsx(
-                "font-display text-sm font-bold uppercase tracking-[0.02em] transition-colors hover:text-action-bright",
-                scrolled ? "text-navy" : "text-white",
-              );
+              const navClass = "font-display text-sm font-bold uppercase tracking-[0.02em] text-white transition-colors hover:text-action-bright";
               return item.href.includes("#") ? (
                 <a key={item.href} href={item.href} className={navClass}>
                   {item.label}
@@ -103,13 +64,7 @@ export function Header() {
             >
               <Phone className="h-4 w-4" aria-hidden="true" />
             </a>
-            <a
-              href={site.phoneHref}
-              className={clsx(
-                "hidden items-center gap-2 font-display text-sm font-bold lg:flex",
-                scrolled ? "text-navy" : "text-white",
-              )}
-            >
+            <a href={site.phoneHref} className="hidden items-center gap-2 font-display text-sm font-bold text-white lg:flex">
               <Phone className="h-4 w-4 text-action" aria-hidden="true" />
               {site.phone}
             </a>

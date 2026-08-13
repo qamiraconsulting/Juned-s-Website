@@ -4,6 +4,7 @@ import {
   Users,
   ShieldCheck,
   Home,
+  Building,
   Building2,
   Trash2,
   Package,
@@ -16,6 +17,8 @@ import {
   Calendar,
   User,
   MapPin,
+  Leaf,
+  KeyRound,
   type LucideIcon,
 } from "lucide-react";
 
@@ -28,6 +31,7 @@ export const icons = {
   users: Users,
   shield: ShieldCheck,
   home: Home,
+  apartment: Building,
   building: Building2,
   trash: Trash2,
   package: Package,
@@ -40,6 +44,8 @@ export const icons = {
   calendar: Calendar,
   user: User,
   "map-pin": MapPin,
+  leaf: Leaf,
+  key: KeyRound,
 } satisfies Record<string, LucideIcon>;
 
 export type IconKey = keyof typeof icons;

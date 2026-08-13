@@ -13,6 +13,7 @@ export const primaryNav: NavItem[] = [
   { label: "How It Works", href: "/#how-it-works" },
   { label: "Service Areas", href: "/#areas" },
   { label: "Reviews", href: "/#reviews" },
+  { label: "FAQs", href: "/faq" },
 ];
 
 export const footerNav = {
@@ -29,6 +30,7 @@ export const footerNav = {
     { label: "How It Works", href: "/#how-it-works" },
     { label: "Service Areas", href: "/#areas" },
     { label: "Reviews", href: "/#reviews" },
+    { label: "FAQs", href: "/faq" },
     { label: "Get a Quote", href: "/quote" },
   ],
 } satisfies Record<string, NavItem[]>;

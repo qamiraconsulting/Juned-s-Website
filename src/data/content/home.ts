@@ -16,6 +16,20 @@ export const hero = {
   callbackCta: { label: "Request Callback" }, // opens the lightweight CallbackModal, not a route -- see lib/callbackModal.tsx
 };
 
+// "We Don't Just Move Furniture" trust intro, sitting right under the hero
+// area (2026-08-13, from client-supplied reference screenshot of the
+// sample site). Copy transcribed verbatim from that reference.
+export const trustIntro = {
+  eyebrow: "A Moving Company You Can Trust",
+  heading: "We Don't Just Move Furniture. We Move Lives.",
+  headingAccent: "We Move Lives.",
+  body: [
+    "We know that every home has a story. That's why we treat every move with the care, respect and attention it deserves.",
+    "With 8+ years of experience and over 11,000 successful moves, families and individuals across Melbourne trust Blue Line Removals to move what matters most.",
+  ],
+  signature: "The Blue Line Removals Team",
+};
+
 // New-customer / seasonal discount hook, carried over from the pre-sample
 // build (2026-07-23 decision). Not part of the sample's hero -- surfaced
 // instead on the Quote page so it isn't lost. Update or retire seasonally.
@@ -32,30 +46,64 @@ export const trustStats = [
   { icon: "shield", value: "100%", label: "Fully Insured" },
 ] as const;
 
-// Homepage "Moving & Junk Removal Made Simple" overview -- two cards
-// linking into the full catalog on /services. Full per-service detail
-// pages are in data/content/services.ts.
-export const servicesOverview = {
-  eyebrow: "Our Services",
-  heading: "Moving & Junk Removal Made Simple",
-  headingAccent: "Junk Removal",
-  items: [
+// Homepage "Two Services. One Trusted Team." section (2026-08-12, from
+// client-supplied reference screenshot of the sample site's services
+// block). Each category card lists 5 sub-services -- the Moving items map
+// to existing /services/:slug pages where one exists (Apartment & Unit
+// Moves doesn't have its own page yet, so it links to the /services list).
+// The Junk Removal sub-items are a new, more granular breakdown than the
+// single junk-removal page's own checklist in data/content/services.ts --
+// "Rubbish Removal" and "End of Lease Clean Outs" are new here, straight
+// from the client's reference image.
+export const servicesDetailed = {
+  eyebrow: "What We Do",
+  heading: "Two Services. One Trusted Team.",
+  body: "Whether you're moving to a new home or clearing out unwanted items, Blue Line Removals is here to make it easy.",
+  categories: [
     {
-      title: "Moving Services",
-      body: "From small homes to big moves, we handle it all with care.",
-      icon: "truck",
-      href: "/services",
+      key: "moving",
+      accent: "navy" as const,
+      badge: "Moving Services",
+      title: "Moving Made Easy.",
+      body: "From start to finish, we handle your move with care, professionalism and experience.",
+      image: "homeRemovals" as const,
+      cta: { label: "Explore Moving Services", href: "/services" },
+      items: [
+        { icon: "home", title: "Home Removals", body: "Moving to a new home? We'll take care of everything.", href: "/services/home-removals" },
+        { icon: "apartment", title: "Apartment & Unit Moves", body: "Perfect for apartments, townhouses and high-rise living.", href: "/services" },
+        { icon: "building", title: "Office & Commercial Moves", body: "Minimise disruption and keep your business moving.", href: "/services/office-removals" },
+        { icon: "package", title: "Packing & Unpacking", body: "Professional packing to protect what matters most.", href: "/services/packing-unpacking" },
+        { icon: "truck", title: "Local & Interstate Moves", body: "Moving across town or across the country, we've got you covered.", href: "/services/interstate-removals" },
+      ],
     },
     {
-      title: "Junk Removal",
-      titleAccent: true,
-      body: "Fast, reliable removal of unwanted items.",
-      subheading: "Junk Gone, Space Won.",
-      icon: "trash",
-      href: "/services/junk-removal",
+      key: "junk",
+      accent: "action" as const,
+      badge: "Junk Removal",
+      title: "Junk Gone. Space Won.",
+      body: "We remove the unwanted so you can enjoy a clean, clutter-free space.",
+      image: "junkRemoval" as const,
+      cta: { label: "Explore Junk Removal", href: "/services/junk-removal" },
+      items: [
+        { icon: "armchair", title: "Furniture Removal", body: "Old furniture taking up space? We'll take it away.", href: "/services/junk-removal" },
+        { icon: "trash", title: "Rubbish Removal", body: "General rubbish, household waste and clutter — gone.", href: "/services/junk-removal" },
+        { icon: "leaf", title: "Green Waste Removal", body: "Garden waste, branches, leaves and more.", href: "/services/junk-removal" },
+        { icon: "warehouse", title: "Garage & Shed Clear Outs", body: "Clear the clutter and get your space back.", href: "/services/junk-removal" },
+        { icon: "key", title: "End of Lease Clean Outs", body: "We help real estate agents, tenants and landlords.", href: "/services/junk-removal" },
+      ],
     },
   ],
 };
+
+// Navy stats strip shown right under the services cards, matching the
+// reference -- distinct from `trustStats` above (drops "Happy Customers"
+// for a "Servicing" line and loses the "100%" prefix on Insured).
+export const servicesStats = [
+  { icon: "users", value: "8+", label: "Years Experience" },
+  { icon: "package", value: "11,000+", label: "Moves Completed" },
+  { icon: "shield", value: "Fully", label: "Insured" },
+  { icon: "map-pin", value: "Servicing", label: "Melbourne & Surrounding Areas" },
+] as const;
 
 export const howItWorks = [
   {

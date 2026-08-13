@@ -22,4 +22,5 @@ export const images = {
   packingUnpacking: "/images/packing-unpacking.webp", // branded crew member wrapping a picture frame
   storageSolutions: "/images/storage-solutions.webp", // branded crew wheeling boxes into a storage unit, truck visible outside
   specialtyItems: "/images/specialty-items.webp", // branded crew loading a piano into the truck
+  teamTrust: "/images/team-trust.webp", // 3 branded crew members standing arms-crossed in front of the open truck -- client's own photo (BLR Team.png), not AI-generated like the rest
 } as const;
