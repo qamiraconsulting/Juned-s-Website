@@ -5,15 +5,11 @@
 // customers / 100% insured" stats below are real and OK to publish as-is.
 // The full 7-service catalog (used on /services and /services/:slug) now
 // lives in data/content/services.ts, not here.
-import { site } from "@/data/site";
-
 export const hero = {
   heading: "Beyond Boxes, We Move Memories.",
   headingAccent: "Memories.",
   lede: "Moving & Junk Removal Services Across Australia.",
   primaryCta: { label: "Get a Free Quote", href: "/quote" },
-  callCta: { label: "Call Us Now", href: site.phoneHref },
-  callbackCta: { label: "Request Callback" }, // opens the lightweight CallbackModal, not a route -- see lib/callbackModal.tsx
 };
 
 // "We Don't Just Move Furniture" trust intro, sitting right under the hero
@@ -36,7 +32,7 @@ export const trustIntro = {
 export const promo = {
   badge: "New Customer Offer",
   heading: "30% off your first move",
-  body: "Book your first move or junk removal with Blue Line Removals and save 30% off the flat-rate quote — mention it when you call or note it on the form.",
+  body: "Book your first move or junk removal with Blue Line Removals and save 30% off the flat-rate quote — just note it on the form.",
 };
 
 export const trustStats = [
@@ -109,7 +105,7 @@ export const howItWorks = [
   {
     step: "01",
     title: "Tell us what's going on",
-    body: "Call, text a few photos, or fill in the quote form. Junk pile, a whole house move, or both — either way you'll get a straight answer, not a guess.",
+    body: "Email a few photos or fill in the quote form. Junk pile, a whole house move, or both — either way you'll get a straight answer, not a guess.",
   },
   {
     step: "02",
@@ -143,7 +139,7 @@ export const whyUs = [
   },
   {
     title: "Same-Day Availability",
-    body: "Most jobs can be booked and cleared the same day. If it's urgent, say so when you call.",
+    body: "Most jobs can be booked and cleared the same day. If it's urgent, just say so on the quote form.",
   },
   {
     title: "Upfront, Flat-Rate Pricing",

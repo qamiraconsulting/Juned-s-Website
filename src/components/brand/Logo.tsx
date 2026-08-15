@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { site } from "@/data/site";
 
 export function Logo({ large = false, light = false }: { large?: boolean; light?: boolean }) {

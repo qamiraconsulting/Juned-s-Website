@@ -11,6 +11,22 @@ import { faq } from "@/data/content/faq";
 import { images } from "@/data/content/images";
 import { ease } from "@/lib/motion";
 
+// Not shown as a Google rich result (Google retired FAQ SERP snippets in
+// May 2026) -- kept for AI answer-engine citability, which is a separate
+// signal from Google's own rich-result eligibility.
+const faqPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faq.items.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
+};
+
 function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [open, setOpen] = useState(false);
   const prefersReducedMotion = useReducedMotion();
@@ -54,6 +70,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 export function FAQ() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageSchema) }} />
       <Section tone="paper" className="pt-32 sm:pt-40">
         <Container>
           <Reveal className="text-center">
@@ -76,10 +93,12 @@ export function FAQ() {
 
       <CTABanner
         heading="Still Have Questions?"
-        body="We're happy to talk it through — call us or get a free, no-obligation quote."
+        body="Get a free, no-obligation quote and we'll take it from there."
         image={images.junkRemoval}
         imageAlt="Blue Line Removals crew loading a sofa into the branded truck"
       />
     </>
   );
 }
+
+export default FAQ;

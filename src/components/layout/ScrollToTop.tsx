@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation } from "react-router";
 
 // Scrolls to top on route change, unless the navigation targets an in-page
 // hash (e.g. "/#how-it-works"), in which case the browser's native anchor

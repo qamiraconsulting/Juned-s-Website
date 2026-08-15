@@ -1,4 +1,4 @@
-import { Navigate, useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router";
 import { Check, Leaf } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
@@ -76,3 +76,5 @@ export function ServiceDetail() {
     </>
   );
 }
+
+export default ServiceDetail;

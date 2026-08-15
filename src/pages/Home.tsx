@@ -8,7 +8,6 @@ import { WhyUs } from "@/components/sections/home/WhyUs";
 import { ServiceAreas } from "@/components/sections/home/ServiceAreas";
 import { Reviews } from "@/components/sections/home/Reviews";
 import { QuoteCTA } from "@/components/sections/home/QuoteCTA";
-import { CallbackBar } from "@/components/ui/CallbackBar";
 import { servicesStats } from "@/data/content/home";
 
 export function Home() {
@@ -19,7 +18,6 @@ export function Home() {
       <TrustIntro />
       <Services />
       <TrustBar tone="navy" stats={servicesStats} />
-      <CallbackBar />
       <HowItWorks />
       <BeforeAfter />
       <WhyUs />
@@ -29,3 +27,5 @@ export function Home() {
     </>
   );
 }
+
+export default Home;

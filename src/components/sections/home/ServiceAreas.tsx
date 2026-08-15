@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import clsx from "clsx";
 import { Search, MapPin } from "lucide-react";
 import { Container } from "@/components/ui/Container";

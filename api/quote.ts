@@ -27,7 +27,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   if (!process.env.RESEND_API_KEY || !process.env.LEAD_FROM_EMAIL) {
-    res.status(500).json({ error: "The quote form isn't configured yet. Please call us directly instead." });
+    res.status(500).json({ error: "The quote form isn't configured yet. Please email us directly instead." });
     return;
   }
 
@@ -73,13 +73,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     if (error) {
       console.error("Quote form send failed:", error);
-      res.status(502).json({ error: "We couldn't send that just now. Please call us instead." });
+      res.status(502).json({ error: "We couldn't send that just now. Please email us instead." });
       return;
     }
 
     res.status(200).json({ ok: true });
   } catch (err) {
     console.error("Quote form send failed:", err);
-    res.status(502).json({ error: "We couldn't send that just now. Please call us instead." });
+    res.status(502).json({ error: "We couldn't send that just now. Please email us instead." });
   }
 }

@@ -1,7 +1,6 @@
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
-import { useCallbackModal } from "@/lib/callbackModal";
 
 // Dark CTA panel with a photo accent -- used at the bottom of the
 // Services list page ("Need Help Deciding?") and every service detail
@@ -17,8 +16,6 @@ export function CTABanner({
   image: string;
   imageAlt: string;
 }) {
-  const { open } = useCallbackModal();
-
   return (
     <section className="bg-paper py-4 sm:py-6">
       <Container>
@@ -30,9 +27,6 @@ export function CTABanner({
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                 <Button href="/quote" arrow>
                   Get a Free Quote
-                </Button>
-                <Button onClick={open} variant="steel">
-                  Request Callback
                 </Button>
               </div>
             </div>

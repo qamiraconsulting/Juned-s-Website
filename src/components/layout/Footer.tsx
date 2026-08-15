@@ -1,5 +1,5 @@
-import { Phone, Mail, MapPin } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Mail, MapPin } from "lucide-react";
+import { Link } from "react-router";
 import { Logo } from "@/components/brand/Logo";
 import { Container } from "@/components/ui/Container";
 import { footerNav } from "@/data/navigation";
@@ -21,12 +21,6 @@ export function Footer() {
           <div>
             <h4 className="mb-4 font-display text-xs font-bold uppercase tracking-[0.1em] text-white/50">Get In Touch</h4>
             <ul className="flex flex-col gap-3 text-sm">
-              <li>
-                <a href={site.phoneHref} className="flex items-center gap-2 transition-colors hover:text-action-bright">
-                  <Phone className="h-4 w-4 shrink-0" aria-hidden="true" />
-                  {site.phone}
-                </a>
-              </li>
               <li>
                 <a href={`mailto:${site.email}`} className="flex items-center gap-2 transition-colors hover:text-action-bright">
                   <Mail className="h-4 w-4 shrink-0" aria-hidden="true" />

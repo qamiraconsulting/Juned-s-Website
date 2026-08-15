@@ -1,12 +1,12 @@
 import { useState, type FormEvent } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router";
 import clsx from "clsx";
 import { User, Phone, Mail, MapPin, Calendar, Home as HomeIcon, Truck, Trash2, DollarSign, Clock, ShieldCheck, CircleCheck } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
-import { CallbackBar } from "@/components/ui/CallbackBar";
+import { site } from "@/data/site";
 
 const quoteTrust = [
   { icon: DollarSign, label: "No Hidden Fees" },
@@ -50,7 +50,7 @@ export function Quote() {
       });
       const result = (await res.json()) as { ok?: boolean; error?: string };
       if (!res.ok || !result.ok) {
-        setError(result.error ?? "We couldn't send that just now. Please call us instead.");
+        setError(result.error ?? `We couldn't send that just now. Please email us at ${site.email} instead.`);
         return;
       }
       setSubmitted(true);
@@ -143,11 +143,11 @@ export function Quote() {
           </Reveal>
         </Container>
       </Section>
-
-      <CallbackBar heading="Want us to call you back?" body="Request a callback and we'll call you at a time that suits you." />
     </>
   );
 }
+
+export default Quote;
 
 function NeedCard({
   label,

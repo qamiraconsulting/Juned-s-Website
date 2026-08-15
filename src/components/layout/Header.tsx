@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import { Menu, X, Phone } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Menu, X, ArrowRight } from "lucide-react";
+import { Link } from "react-router";
 import { Logo } from "@/components/brand/Logo";
 import { Button } from "@/components/ui/Button";
 import { primaryNav } from "@/data/navigation";
-import { site } from "@/data/site";
 
 // Always the solid navy bar now, on every page and at every scroll
 // position -- previously this only went solid-white after scrolling 12px
@@ -25,9 +24,11 @@ export function Header() {
   return (
     <header id="top" className="fixed inset-x-0 top-0 z-[100]">
       <div className="border-b border-white/10 bg-navy py-3 shadow-sm">
-        {/* Mobile/tablet: hamburger - logo - call button, matching the sample's
-            mobile header. Desktop (lg+): logo - nav - phone + quote button,
-            hamburger and mobile call button drop out entirely. */}
+        {/* Mobile/tablet: hamburger - logo - quote button, matching the sample's
+            hamburger-left/logo-center/right-slot mobile header layout (the
+            right slot held a call button until the phone number was
+            dropped 2026-08-15). Desktop (lg+): logo - nav - quote button,
+            hamburger and the mobile right slot drop out entirely. */}
         <div className="mx-auto flex max-w-content items-center justify-between px-5 sm:px-8 lg:px-12">
           <button
             type="button"
@@ -57,17 +58,13 @@ export function Header() {
           </nav>
 
           <div className="flex shrink-0 items-center gap-3">
-            <a
-              href={site.phoneHref}
-              aria-label={`Call ${site.phone}`}
+            <Link
+              to="/quote"
+              aria-label="Get a Free Quote"
               className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-action text-white lg:hidden"
             >
-              <Phone className="h-4 w-4" aria-hidden="true" />
-            </a>
-            <a href={site.phoneHref} className="hidden items-center gap-2 font-display text-sm font-bold text-white lg:flex">
-              <Phone className="h-4 w-4 text-action" aria-hidden="true" />
-              {site.phone}
-            </a>
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
             <div className="hidden lg:inline-flex">
               <Button href="/quote">Get a Free Quote</Button>
             </div>

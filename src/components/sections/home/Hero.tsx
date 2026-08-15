@@ -4,11 +4,9 @@ import { Button } from "@/components/ui/Button";
 import { hero } from "@/data/content/home";
 import { images } from "@/data/content/images";
 import { ease } from "@/lib/motion";
-import { useCallbackModal } from "@/lib/callbackModal";
 
 export function Hero() {
   const [headingLead] = hero.heading.split(hero.headingAccent);
-  const { open } = useCallbackModal();
 
   return (
     <>
@@ -41,12 +39,6 @@ export function Hero() {
               <Button href={hero.primaryCta.href} arrow className="w-full px-2 py-2 text-[10px]">
                 {hero.primaryCta.label}
               </Button>
-              <Button href={hero.callCta.href} variant="navy" className="w-full px-2 py-2 text-[10px]">
-                {hero.callCta.label}
-              </Button>
-              <Button onClick={open} variant="steel" className="w-full px-2 py-2 text-[10px]">
-                {hero.callbackCta.label}
-              </Button>
             </div>
           </motion.div>
         </Container>
@@ -77,12 +69,6 @@ export function Hero() {
             <div className="mt-10 flex flex-wrap gap-3">
               <Button href={hero.primaryCta.href} arrow>
                 {hero.primaryCta.label}
-              </Button>
-              <Button href={hero.callCta.href} variant="navy">
-                {hero.callCta.label}
-              </Button>
-              <Button onClick={open} variant="steel">
-                {hero.callbackCta.label}
               </Button>
             </div>
           </motion.div>

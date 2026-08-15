@@ -15,12 +15,12 @@
 export const faq = {
   eyebrow: "FAQs",
   heading: "Questions? We've Got Answers.",
-  body: "Everything you need to know about moving and junk removal with Blue Line Removals. Can't find what you're after? Just give us a call.",
+  body: "Everything you need to know about moving and junk removal with Blue Line Removals. Can't find what you're after? Just ask on the quote form.",
   items: [
     {
       question: "How do I get a quote?",
       answer:
-        "Call us, text through a few photos, or fill in the quote form on our website. Either way, you'll get a flat-rate quote before we start — no call-out fee just to find out the price.",
+        "Email through a few photos, or fill in the quote form on our website. Either way, you'll get a flat-rate quote before we start — no call-out fee just to find out the price.",
     },
     {
       question: "Do you charge by the hour or a flat rate?",
@@ -35,12 +35,12 @@ export const faq = {
     {
       question: "Can you do same-day moves or junk removal?",
       answer:
-        "Most jobs can be booked and completed the same day. If it's urgent, just say so when you call and we'll do what we can to fit you in.",
+        "Most jobs can be booked and completed the same day. If it's urgent, just say so on the quote form and we'll do what we can to fit you in.",
     },
     {
       question: "What areas do you service?",
       answer:
-        "We're based in Melbourne and cover the CBD and surrounding suburbs across every major region — inner city, eastern, western, northern, southern and the Mornington Peninsula. Search your suburb in the Service Areas section on our homepage, or just ask when you call.",
+        "We're based in Melbourne and cover the CBD and surrounding suburbs across every major region — inner city, eastern, western, northern, southern and the Mornington Peninsula. Search your suburb in the Service Areas section on our homepage, or just ask on the quote form.",
     },
     {
       question: "Do you move interstate as well as locally?",
@@ -61,7 +61,7 @@ export const faq = {
       question: "Are there any items you can't take for junk removal?",
       answer:
         // Industry-standard, not yet confirmed with the client -- double-check before publishing.
-        "Most household and commercial junk is fine — furniture, appliances, general rubbish, green waste and more. A few restricted items like asbestos, gas bottles or hazardous chemicals need special handling, so give us a call to confirm before you book if you're not sure.",
+        "Most household and commercial junk is fine — furniture, appliances, general rubbish, green waste and more. A few restricted items like asbestos, gas bottles or hazardous chemicals need special handling, so check with us before you book if you're not sure.",
     },
     {
       question: "Do I need to be there on the day?",
@@ -76,11 +76,11 @@ export const faq = {
     },
     {
       question: "Can I change or reschedule my booking?",
-      answer: "Yes — just call or message us as early as you can and we'll find a new time that works.",
+      answer: "Yes — just email us as early as you can and we'll find a new time that works.",
     },
     {
       question: "Do you offer a discount for new customers?",
-      answer: "Yes — first-time customers get 30% off their flat-rate quote. Mention it when you call or note it on the quote form.",
+      answer: "Yes — first-time customers get 30% off their flat-rate quote. Just note it on the quote form.",
     },
     {
       question: "Can you move specialty or fragile items like pianos?",

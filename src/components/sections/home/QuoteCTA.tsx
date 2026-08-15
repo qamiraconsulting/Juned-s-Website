@@ -1,4 +1,4 @@
-import { Phone, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/Eyebrow";
@@ -25,13 +25,7 @@ export function QuoteCTA() {
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
-              <a href={site.phoneHref} className="flex items-center gap-3 font-display text-lg font-bold text-white hover:text-action-bright">
-                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-action-bright">
-                  <Phone className="h-5 w-5" aria-hidden="true" />
-                </span>
-                {site.phone}
-              </a>
-              <a href={`mailto:${site.email}`} className="flex items-center gap-3 text-white/70 hover:text-white">
+              <a href={`mailto:${site.email}`} className="flex items-center gap-3 font-display text-lg font-bold text-white hover:text-action-bright">
                 <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white">
                   <Mail className="h-5 w-5" aria-hidden="true" />
                 </span>
